@@ -26,20 +26,22 @@ APP.controller('MainCtrl', function ($scope, $state){
 	}
 })
 
-angular.module("starter").controller('IndexCtrl', function ($scope, $state, $http, desabafosAPI, $stateParams, userService){
+angular.module("starter").controller('IndexCtrl', function ($scope, $state, $http, desabafosAPI, $stateParams, userService, desabafoAtual){
 	$scope.desabafar = function (){
 		$state.go('xingamento')
 	}
 
 	$scope.idSelecionado = [];
 	$scope.selecionar = function(nome, id, titulo, desabafo){
+			//Salvo o desabafo atual no serviço desabafoAtual criado no service.js
+			desabafoAtual.saveDesabafo(desabafo);
 			$state.go('selecionado');
 			$scope.idSelecionado = id;
 			$scope.nomeSelecionado = nome;
 			$scope.tituloSelecionado = titulo;
 			$scope.desabafoSelecionado = desabafo;
 			console.log($scope.idSelecionado, $scope.nomeSelecionado, $scope.tituloSelecionado, $scope.desabafoSelecionado);
-			$scope.idSelecionado.push(nomeSelecionado);
+			// $scope.idSelecionado.push($scope.nomeSelecionado);
 	};
 
 		$scope.desabafos = [];
@@ -53,9 +55,9 @@ angular.module("starter").controller('IndexCtrl', function ($scope, $state, $htt
 
 })
 
-APP.controller('SelectCtrl', function ($scope, $state, desabafosAPI, $stateParams, userService, nome) {
-	
-
+APP.controller('SelectCtrl', function ($scope, $state, desabafosAPI, $stateParams, userService, desabafoAtual) {
+	//Obtenho o desabafoAtual salvo anteriormente e adiciono no escopo deste controller
+	$scope.desabafo = desabafoAtual.getDesabafo();
 })
 
 APP.controller('XingCtrl', function ($scope, $state){

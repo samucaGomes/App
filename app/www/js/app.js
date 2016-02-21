@@ -50,7 +50,7 @@ APP.config(function($stateProvider, $urlRouterProvider) {
   })
   .state('selecionado', {
     url:'/selecionado',
-    controller:'IndexCtrl',
+    controller:'SelectCtrl',
     templateUrl: 'selecionado.html'
   })
 

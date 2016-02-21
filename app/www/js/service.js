@@ -22,3 +22,25 @@ angular.module("starter").factory("desabafosAPI", function ($http, config) {
 		}
 	}
 })
+
+/*
+* Criado um novo serviço para manter o desabafo atual(Pode juntar com outro serviço fiz assim para separar),
+* O serviço no angular basicamente é um singleton(Instância unica na aplicação)
+* Então basta passar como dependencia nos controllers que utilizam o mesmo.
+*/
+.factory('desabafoAtual', function () {
+	var desabafoAtual = [];
+
+	var _getDesabafoAtual = function () {
+		return desabafoAtual;
+	};
+
+	var _setDesabafoAtual = function (desabafo) {
+		desabafoAtual = desabafo;
+	};
+
+	return {
+		getDesabafo: _getDesabafoAtual,
+		saveDesabafo: _setDesabafoAtual
+	};
+})
