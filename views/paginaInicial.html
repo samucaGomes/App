@@ -9,14 +9,11 @@
           </div><br><br><br><br>
           <div>
           <ion-list>
-        <ion-item ng-repeat="recente in desabafos" ng-click="selecionar()">
-        <table>
-        <a><tr>{{recente.nome}}</a> Reclamou:<br>
-        <b>Título: </b>{{recente.titulo}}</tr>
-        <div ng-show="showMe">
-          {{recente.desabafo}}
-        </div>
-        </table>
+        <ion-item ng-repeat="recente in desabafos">
+        <ion-option-button ng-click="selecionar(recente)">
+        <a>{{recente.nome}}</a> Reclamou:<br>
+        <b>Título: </b>{{recente.titulo}}
+        </ion-option-button>
       </ion-item>
     </ion-list>
     </div>
