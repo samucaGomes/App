@@ -24,10 +24,16 @@ APP.run(function($ionicPlatform) {
 })
 
 APP.config(function($stateProvider, $urlRouterProvider) {
+  
+  /*
+  NO app eu defino quais sao as rotas, inclusive a rota inicial, que no caso aqui é o login, pois 
+  definimos no otherise("/login")!
+  
 
+  */
 
   $stateProvider
-  .state('login', { 
+  .state('login', { // no caso o nome que esta aqui...
     url: '/login',
     controller: 'MainCtrl',
     templateUrl: 'login.html'
@@ -44,7 +50,7 @@ APP.config(function($stateProvider, $urlRouterProvider) {
   })
   .state('selecionado', {
     url:'/selecionado',
-    controller:'SelectCtrl',
+    controller:'IndexCtrl',
     templateUrl: 'selecionado.html'
   })
 
