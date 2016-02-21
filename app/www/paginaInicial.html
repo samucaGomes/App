@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-pane>
+    <ion-header-bar class="bar-dark">
+      <a ng-click="desabafar()"><button class="button icon-left ion-speakerphone">DESABAFAR</button></a>
+        <h1 class="title">Página Inicial</h1>
+    </ion-header-bar>
+      <div class="bar bar-subheader">
+          <h2 class="title">Recentes</h2>
+          </div><br><br><br><br>
+          <div>
+          <ion-list>
+        <ion-item ng-repeat="recente in desabafos" ng-click="selecionar(recente.nome, recente.id, recente.titulo, recente.desabafo)">
+        <table>
+        <a><tr>{{recente.nome}}</a> Reclamou:<br>
+        <b>Título: </b>{{recente.titulo}}</tr>
+        </table>
+      </ion-item>
+    </ion-list>
+    </div>
+  </ion-pane>
+</ion-view>
